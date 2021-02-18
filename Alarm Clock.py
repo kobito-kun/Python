@@ -19,9 +19,9 @@ def convertToSeconds(param, value):
 
 def calculateAMPMToSeconds(value):
 	value = value.split(':')
-	v1 = int(value[0]) * 3600
-	v2 = int(value[1]) * 60
-	v3 = int(value[2])
+	v1 = float(value[0]) * 3600
+	v2 = float(value[1]) * 60
+	v3 = float(value[2])
 	base = v1 + v2 + v3
 	return base
 
@@ -32,11 +32,19 @@ if option == 1:
 	value = float(input("Enter a value: "))
 	k = input("H/M/S?: ")
 	j = convertToSeconds(k, value)
-	time.sleep(int(j))
+	print(f"The alarm will sound in '{j}' seconds.")
+	for i in range(int(j)):
+		print(f"Alarm will sound in { j-i }")
+		time.sleep(1)
+	#time.sleep(int(j))
 	sound()
 elif option == 2:
 	print("HR/MIN/SEC (1:23:12)")
 	k = input("Input a time: ")
 	j = calculateAMPMToSeconds(k)
-	time.sleep(int(j))
+	print(f"The alarm will sound in {j}seconds.")
+	for i in range(int(j)):
+		print(f"Alarm will sound in { j-i }")
+		time.sleep(1)
+	#time.sleep(int(j))
 	sound()
