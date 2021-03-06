@@ -20,4 +20,4 @@ def download(url, filename):
                 sys.stdout.flush()
     sys.stdout.write('\n')
 
-download('https://cdn.overdosed.pw/up/15983013749b6d354.png', 'an image.png')
+download('https://marketplace.visualstudio.com/_apis/public/gallery/publishers/octref/vsextensions/vetur/0.33.0/vspackage', 'octref.vetur-0.33.0.vsix')
