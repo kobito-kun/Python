@@ -6,7 +6,7 @@ horses = []
 
 # assigning value to horses ( secret )
 for i in range(init):
-	horse = random.randint(1, 100)
+	horse = random.randint(0, 1000)
 	horses.append(horse)
 
 # Race 5 times to get a,b,c,d,e
@@ -36,7 +36,7 @@ c = sorted(c)
 d = sorted(d)
 e = sorted(e)
 
-attributes = [e, d, c, b, a]
+attributes = [a,b,c,d,e]
 
 print("==== Sorted ====")
 for a in attributes:
@@ -45,21 +45,38 @@ print("================\n")
 
 # using bubble sort to sort:
 
-print("initial: ", attributes)
-
-for j in range(len(attributes) - 1):
-		for i in range(0, len(attributes)-j-1):
+for i in range(len(attributes) - 1):
+		for j in range(0, len(attributes)-i-1):
 			if attributes[j][4] < attributes[j + 1][4]:
 				attributes[j], attributes[j+1] = attributes[j+1], attributes[j]
 			else:
 				pass
-			
-print("sorted: ", attributes)
 
-print("\n" * 3)
-# Debugging
+e = attributes[4]
+d = attributes[3]
+c = attributes[2]
+b = attributes[1]
+a = attributes[0]
+
+top1 = a[4]
+
+array = [a[3], a[2], b[4], b[3], c[4]]
+
+result = sorted(array)
+
+top2 = result[4]
+top3 = result[3]
+
+print("==== Sorted ====")
 print(a)
 print(b)
 print(c)
 print(d)
 print(e)
+print("================")
+
+print(f"""
+top1: {top1}
+top2: {top2}
+top3: {top3}
+""")
