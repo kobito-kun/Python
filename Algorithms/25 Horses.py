@@ -3,6 +3,7 @@ import random
 init = 25
 race_limit = 5
 horses = []
+races = 0
 
 # assigning value to horses ( secret )
 for i in range(init):
@@ -29,28 +30,34 @@ for horse in range(len(horses)):
 	else:
 		e.append(horses[horse])
 
-# Sort from low to high
-a = sorted(a)
-b = sorted(b)
-c = sorted(c)
-d = sorted(d)
-e = sorted(e)
+def race(attributes):
+	global races
+	races += 1
+	try:
+		for i in range(len(attributes) - 1):
+			for j in range(0, len(attributes)-i-1):
+				if attributes[j][-1] < attributes[j + 1][-1]:
+					attributes[j], attributes[j+1] = attributes[j+1], attributes[j]
+				else:
+					pass
+	except:
+		for i in range(len(attributes) - 1):
+			for j in range(0, len(attributes)-i-1):
+				if attributes[j] < attributes[j + 1]:
+					attributes[j], attributes[j+1] = attributes[j+1], attributes[j]
+				else:
+					pass
+	return attributes
+
+race(a)
+race(b)
+race(c)
+race(d)
+race(e)
 
 attributes = [a,b,c,d,e]
 
-print("==== Sorted ====")
-for a in attributes:
-	print(a)
-print("================\n")
-
-# using bubble sort to sort:
-
-for i in range(len(attributes) - 1):
-		for j in range(0, len(attributes)-i-1):
-			if attributes[j][4] < attributes[j + 1][4]:
-				attributes[j], attributes[j+1] = attributes[j+1], attributes[j]
-			else:
-				pass
+race(attributes)
 
 e = attributes[4]
 d = attributes[3]
